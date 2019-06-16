@@ -13,6 +13,7 @@ $GitPromptSettings.EnableWindowTitle = ' ' # Edits title to have repo info witho
 
 Import-Module cd-extras
 
+# Paths to directories of NeoVim and Sublime Text 3 configuration files
 $env:NVIMDIR = Join-Path $env:LOCALAPPDATA nvim
 $env:SUBLDIR = Join-Path $env:APPDATA "Sublime Text 3/Packages/User"
 
