@@ -13,7 +13,15 @@ $GitPromptSettings.EnableWindowTitle = ' ' # Edits title to have repo info witho
 
 Import-Module cd-extras
 
-# Paths to directories of NeoVim and Sublime Text 3 configuration files
-$env:NVIMDIR = Join-Path $env:LOCALAPPDATA nvim
-$env:SUBLDIR = Join-Path $env:APPDATA "Sublime Text 3/Packages/User"
+# Hopefully reduces delay, these are already in environment
+if (!$env:InclGuard) {
+	# Race condition?
+	$env:InclGuard = $True
+	
+	# Paths to directories of configuration files and scripts
+	$env:NVIMDIR = Join-Path $env:LOCALAPPDATA nvim
+	$env:SUBLDIR = Join-Path $env:APPDATA "Sublime Text 3/Packages/User"
+	$env:CMDLETSDIR = Join-Path $env:HOME "cmdlets"
 
+	$env:Path += "$env:CMDLETSDIR;"
+}
