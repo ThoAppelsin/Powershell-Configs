@@ -23,5 +23,5 @@ if (!$env:InclGuard) {
 	$env:SUBLDIR = Join-Path $env:APPDATA "Sublime Text 3/Packages/User"
 	$env:CMDLETSDIR = Join-Path $env:HOME "cmdlets"
 
-	$env:Path += "$env:CMDLETSDIR;"
+	$env:Path = "$env:CMDLETSDIR;" + $env:Path
 }
