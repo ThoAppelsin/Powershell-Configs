@@ -6,10 +6,10 @@ New-Alias nb jupyter-notebook
 # $oldOutputEncoding = $OutputEncoding; $oldConsoleEncoding = [Console]::OutputEncoding
 # $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.Utf8Encoding
 
-Import-Module 'C:\tools\poshgit\dahlbyk-posh-git-9bda399\src\posh-git.psd1'
+Import-Module posh-git # 'C:\tools\poshgit\dahlbyk-posh-git-9bda399\src\posh-git.psd1'
 
 $GitPromptSettings.DefaultPromptPath = '$(gprompt)'
-$GitPromptSettings.EnableWindowTitle = ' ' # Edits title to have repo info without prefix
+# $GitPromptSettings.EnableWindowTitle = ' ' # Edits title to have repo info without prefix
 
 Import-Module cd-extras
 
@@ -21,7 +21,7 @@ if (!$env:InclGuard) {
 	# Paths to directories of configuration files and scripts
 	$env:NVIMDIR = Join-Path $env:LOCALAPPDATA nvim
 	$env:SUBLDIR = Join-Path $env:APPDATA "Sublime Text 3/Packages/User"
-	$env:CMDLETSDIR = Join-Path $env:HOME "cmdlets"
+	$env:CMDLETSDIR = Join-Path $HOME "cmdlets"
 
 	$env:Path = "$env:CMDLETSDIR;" + $env:Path
 }
